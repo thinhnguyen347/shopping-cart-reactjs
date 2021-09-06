@@ -1,0 +1,2 @@
+import "../component/Footer.css"
+
