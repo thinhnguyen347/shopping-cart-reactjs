@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/NavigationBar";
-import Footer from "./component/Footer";
 import MainContent from "./component/MainContent";
 import { addedItems } from "./component/mock-data";
 import "./App.css";
@@ -43,21 +42,21 @@ function App() {
     sethideDeleteAllBtn(false);
   }
 
-  function increase(id) {
+  function increase(id, e) {
     let index = list.findIndex((item) => item.id === id);
     list[index].amount = list[index].amount + 1;
     console.log(list);
     setAddedList(list);
   }
 
-  function decrease(id) {
+  function decrease(id,e) {
     let index = list.findIndex((item) => item.id === id);
     if (list[index].amount > 0) list[index].amount = list[index].amount - 1;
     console.log(list);
     setAddedList(list);
   }
 
-  function deleteItem(id) {
+  function deleteItem(id, e) {
     let index = list.findIndex((item) => item.id === id);
     list.splice(index, 1);
     setAddedList(list);
@@ -173,7 +172,6 @@ function App() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/NavigationBar";
-import Footer from "./component/Footer";
 import MainContent from "./component/MainContent";
 import { addedItems } from "./component/mock-data";
 import "./App.css";
@@ -50,7 +49,7 @@ function App() {
     setAddedList(list);
   }
 
-  function decrease(id) {
+  function decrease(id,e) {
     let index = list.findIndex((item) => item.id === id);
     if (list[index].amount > 0) list[index].amount = list[index].amount - 1;
     console.log(list);
@@ -173,7 +172,6 @@ function App() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

@@ -1,9 +1,9 @@
 {
   "short_name": "Shopping Cart",
-  "name": "ReactJS Shopping Cart",
+  "name": "React Shopping Cart",
   "icons": [
     {
-      "src": "fav.png",
+      "src": "favicon.png",
       "type": "image/x-icon"
     }
     

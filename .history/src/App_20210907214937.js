@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/NavigationBar";
-import Footer from "./component/Footer";
 import MainContent from "./component/MainContent";
 import { addedItems } from "./component/mock-data";
 import "./App.css";
@@ -45,22 +44,22 @@ function App() {
 
   function increase(id) {
     let index = list.findIndex((item) => item.id === id);
-    list[index].amount = list[index].amount + 1;
-    console.log(list);
-    setAddedList(list);
+    list[index].amount=list[index].amount+1
+    console.log(index)
+    setAddedList(list)
   }
 
   function decrease(id) {
     let index = list.findIndex((item) => item.id === id);
-    if (list[index].amount > 0) list[index].amount = list[index].amount - 1;
-    console.log(list);
-    setAddedList(list);
+    list[index].amount=list[index].amount+1
+    console.log(index)
+    setAddedList(list)
   }
 
   function deleteItem(id) {
     let index = list.findIndex((item) => item.id === id);
-    list.splice(index, 1);
-    setAddedList(list);
+    list.splice(index,1);
+    setAddedList(list)
   }
 
   return (
@@ -103,7 +102,7 @@ function App() {
                   img={img}
                   amount={amount}
                   increase={increase}
-                  decrease={decrease}
+                  decrease={(e)=>decrease(e,id)}
                   deleteItem={deleteItem}
                 />
               ))}
@@ -173,7 +172,6 @@ function App() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

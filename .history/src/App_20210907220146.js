@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/NavigationBar";
-import Footer from "./component/Footer";
 import MainContent from "./component/MainContent";
 import { addedItems } from "./component/mock-data";
 import "./App.css";
@@ -173,7 +172,6 @@ function App() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }
