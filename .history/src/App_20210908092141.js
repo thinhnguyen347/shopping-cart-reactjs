@@ -121,8 +121,7 @@ function App() {
                 Quay lại mua hàng
               </button>
             </div>
-            <div className="col-12 col-md-4">
-            <div className="p-4 border rounded">
+            <div className="col-12 col-md-4 pt-3 border rounded">
               <p className="h4 fw-bold text-center pb-3 border-bottom">
                 Thông tin đơn hàng
               </p>
@@ -144,7 +143,7 @@ function App() {
                 </p>
               </div>
               <div className="d-flex flex-row flex-wrap justify-content-between align-items-center">
-                
+                <div className="rounded">
                   <p className="text-start text-secondary">Tổng tiền:</p>
                   <p className="h5 text-end text-danger">
                     <span className="h3 total-cost">

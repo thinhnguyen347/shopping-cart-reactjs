@@ -121,8 +121,8 @@ function App() {
                 Quay lại mua hàng
               </button>
             </div>
-            <div className="col-12 col-md-4">
-            <div className="p-4 border rounded">
+            <div className="col-12 col-md-4 align-item-center">
+            <div className="border rounded">
               <p className="h4 fw-bold text-center pb-3 border-bottom">
                 Thông tin đơn hàng
               </p>
