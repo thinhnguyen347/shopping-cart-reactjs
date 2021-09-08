@@ -68,6 +68,7 @@ function App() {
   return (
     <>
       <Navbar itemAmount = {list.length}/>
+      
       <nav aria-label="breadcrumb" className="ms-4 ms-lg-5 py-3">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">

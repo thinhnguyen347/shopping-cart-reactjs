@@ -15,7 +15,7 @@ export default function Navbar({ itemAmount }) {
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
-          aria-expanded="true"
+          aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
@@ -23,12 +23,12 @@ export default function Navbar({ itemAmount }) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-auto me-0">
             <li className="nav-item">
-              <a className="nav-link" href="home.html">
+              <a className="nav-link" href="home">
                 Trang chủ
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link position-relative" href="menu.html">
+              <a className="nav-link position-relative" href="/">
                 Thực đơn
               </a>
             </li>
@@ -60,7 +60,7 @@ export default function Navbar({ itemAmount }) {
               <span className="fs-4">
                 <FaShoppingCart />
               </span>
-              <span className="mt-2 position-absolute top-0 start-100 translate-middle badge bg-danger rounded-circle">
+              <span className="mt-1 position-absolute top-0 start-100 translate-middle badge bg-danger rounded-circle">
                 {itemAmount}
               </span>
             </div>

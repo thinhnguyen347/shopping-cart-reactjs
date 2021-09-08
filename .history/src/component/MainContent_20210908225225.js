@@ -1,6 +1,6 @@
 import React from "react";
-import {BiPlus} from "react-icons/bi"
-import {BiMinus} from "react-icons/bi"
+import {BsPlus, BiMinus} from "react-icons/bs"
+import {BiMinus} from "react-icons/bs"
 
 
 export default function MainContent({
@@ -30,11 +30,11 @@ export default function MainContent({
                   </p>
                 </div>
                 <div className="border flex-fill text-center border-secondary">
-                  <p className="fs-6 mb-0 py-1 px-2 fw-bolder">{amount}</p>
+                  <p className="fs-6 mb-0 py-1 fw-bolder">{amount}</p>
                 </div>
                 <div className="border flex-fill text-center border-start-0  border-secondary rounded-end">
                   <p className="fs-5 mb-0" onClick={(e) => increase(id, e)}>
-                  <BiPlus/>
+                  <BsPlus/>
                   </p>
                 </div>
               </div>

@@ -1,7 +1,6 @@
 import React, { useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/NavigationBar";
-import Header from "./component/Header";
 import Footer from "./component/Footer";
 import MainContent from "./component/MainContent";
 import { addedItems } from "./component/mock-data";
@@ -17,7 +16,7 @@ function App() {
     final_price,
     content;
 
-  let originList = addedItems.map((item) => ({...item}));
+  //const originList = addedList.map((item) => ({...item}));
 
   if (list.length > 0) {
     let subprice = list.map((item) => item.price * item.amount);
@@ -31,7 +30,7 @@ function App() {
   } else {
     vat = 0;
     final_price = 0;
-    content = <p className="text-center">Giỏ hàng không có sản phẩm!</p>;
+    content = <p className="text-center">Không có sản phẩm</p>;
   }
 
   function deleteAll() {
@@ -41,7 +40,7 @@ function App() {
   }
 
   function comeback() {
-    setAddedList(originList);
+    //setAddedList(originList);
     setMessage(true);
     setHideDeleteAllBtn(false);
   }
@@ -67,7 +66,7 @@ function App() {
 
   return (
     <>
-      <Navbar itemAmount = {list.length}/>
+      <Navbar itemAmount = {lít/>
       <nav aria-label="breadcrumb" className="ms-4 ms-lg-5 py-3">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
@@ -86,8 +85,10 @@ function App() {
         </ol>
       </nav>
       <section className="px-3 py-5 mb-5 p-md-3">
-        <h2 className="text-center">GIỎ HÀNG</h2>        
-          {message ? <p className="h6 text-center">Hiện có <span className="text-danger fw-bold">{addedList.length}</span> sản phẩm trong giỏ hàng</p> : <p>""</p>}
+        <h2 className="text-center">GIỎ HÀNG</h2>
+        <p className="h6 text-center">
+          {message ? `Hiện có ${list.length} sản phẩm trong giỏ hàng` : ""}
+        </p>
         <p className="h6 pb-3 text-center">* * *</p>
         <div className="container pt-5">
           <div className="row g-4">

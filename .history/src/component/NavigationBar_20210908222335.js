@@ -15,7 +15,7 @@ export default function Navbar({ itemAmount }) {
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
-          aria-expanded="true"
+          aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
@@ -60,7 +60,7 @@ export default function Navbar({ itemAmount }) {
               <span className="fs-4">
                 <FaShoppingCart />
               </span>
-              <span className="mt-2 position-absolute top-0 start-100 translate-middle badge bg-danger rounded-circle">
+              <span className="mt-1 position-absolute top-0 start-100 translate-middle badge bg-danger rounded-circle">
                 {itemAmount}
               </span>
             </div>

@@ -68,6 +68,7 @@ function App() {
   return (
     <>
       <Navbar itemAmount = {list.length}/>
+      <Header />
       <nav aria-label="breadcrumb" className="ms-4 ms-lg-5 py-3">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
@@ -86,8 +87,10 @@ function App() {
         </ol>
       </nav>
       <section className="px-3 py-5 mb-5 p-md-3">
-        <h2 className="text-center">GIỎ HÀNG</h2>        
-          {message ? <p className="h6 text-center">Hiện có <span className="text-danger fw-bold">{addedList.length}</span> sản phẩm trong giỏ hàng</p> : <p>""</p>}
+        <h2 className="text-center">GIỎ HÀNG</h2>
+        
+          {message ? <p className="h6 text-center">Hiện có ${addedList.length} sản phẩm trong giỏ hàng` : ""}
+        
         <p className="h6 pb-3 text-center">* * *</p>
         <div className="container pt-5">
           <div className="row g-4">
