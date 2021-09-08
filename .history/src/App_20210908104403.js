@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/NavigationBar";
 import Footer from "./component/Footer";
@@ -8,15 +8,14 @@ import "./App.css";
 
 function App() {
   const [addedList, setAddedList] = useState(addedItems);
+  const originList = useRef(addedItems);
   const [message, setMessage] = useState(true);
   const [hideDeleteAllBtn, setHideDeleteAllBtn] = useState(false);
-
-  let list = [...addedList],
+  
+   list = [...addedList],
     vat,
     final_price,
     content;
-
-  //const originList = addedList.map((item) => ({...item}));
 
   if (list.length > 0) {
     let subprice = list.map((item) => item.price * item.amount);
@@ -40,7 +39,7 @@ function App() {
   }
 
   function comeback() {
-    //setAddedList(originList);
+    setAddedList(originList);
     setMessage(true);
     setHideDeleteAllBtn(false);
   }
@@ -53,7 +52,7 @@ function App() {
 
   function decrease(id) {
     let index = list.findIndex((item) => item.id === id);
-    if (list[index].amount >= 2) list[index].amount = list[index].amount - 1;
+    if (list[index].amount > 0) list[index].amount = list[index].amount - 1;
     setAddedList(list);
   }
 
@@ -84,7 +83,7 @@ function App() {
           </li>
         </ol>
       </nav>
-      <section className="px-3 py-5 mb-5 p-md-3">
+      <section className="px-3 py-5 mb-5 p-md-5">
         <h2 className="text-center">GIỎ HÀNG</h2>
         <p className="h6 text-center">
           {message ? `Hiện có ${list.length} sản phẩm trong giỏ hàng` : ""}

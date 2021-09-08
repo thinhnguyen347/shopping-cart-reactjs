@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/NavigationBar";
 import Footer from "./component/Footer";
@@ -8,15 +8,16 @@ import "./App.css";
 
 function App() {
   const [addedList, setAddedList] = useState(addedItems);
+  const originList = useRef([]);
   const [message, setMessage] = useState(true);
   const [hideDeleteAllBtn, setHideDeleteAllBtn] = useState(false);
-
+  
   let list = [...addedList],
     vat,
     final_price,
     content;
 
-  //const originList = addedList.map((item) => ({...item}));
+    originList
 
   if (list.length > 0) {
     let subprice = list.map((item) => item.price * item.amount);
@@ -40,7 +41,7 @@ function App() {
   }
 
   function comeback() {
-    //setAddedList(originList);
+    setAddedList(originList.current);
     setMessage(true);
     setHideDeleteAllBtn(false);
   }

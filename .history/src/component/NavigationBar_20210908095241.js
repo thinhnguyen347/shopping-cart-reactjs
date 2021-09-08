@@ -30,7 +30,7 @@ export default function Navbar() {
             <li className="nav-item">
               <a
                 className="nav-link position-relative"
-                href="/"
+                href="#"
               >
                 Thực đơn
               </a>

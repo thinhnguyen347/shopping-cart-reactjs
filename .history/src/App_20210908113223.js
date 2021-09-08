@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/NavigationBar";
 import Footer from "./component/Footer";
@@ -16,7 +16,8 @@ function App() {
     final_price,
     content;
 
-  //const originList = addedList.map((item) => ({...item}));
+  const originList = addedList.map((item) => ({...item}));
+console.log(originList)
 
   if (list.length > 0) {
     let subprice = list.map((item) => item.price * item.amount);
@@ -40,7 +41,7 @@ function App() {
   }
 
   function comeback() {
-    //setAddedList(originList);
+    setAddedList(originList);
     setMessage(true);
     setHideDeleteAllBtn(false);
   }

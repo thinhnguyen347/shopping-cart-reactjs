@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/NavigationBar";
 import Footer from "./component/Footer";
@@ -9,14 +9,11 @@ import "./App.css";
 function App() {
   const [addedList, setAddedList] = useState(addedItems);
   const [message, setMessage] = useState(true);
-  const [hideDeleteAllBtn, setHideDeleteAllBtn] = useState(false);
-
+  const [hideDeleteAllBtn, sethideDeleteAllBtn] = useState(false);
   let list = [...addedList],
     vat,
     final_price,
     content;
-
-  //const originList = addedList.map((item) => ({...item}));
 
   if (list.length > 0) {
     let subprice = list.map((item) => item.price * item.amount);
@@ -31,18 +28,19 @@ function App() {
     vat = 0;
     final_price = 0;
     content = <p className="text-center">Không có sản phẩm</p>;
+    sethideDeleteAllBtn(true);
   }
 
   function deleteAll() {
     setAddedList([]);
     setMessage(false);
-    setHideDeleteAllBtn(true);
+    sethideDeleteAllBtn(true);
   }
 
   function comeback() {
-    //setAddedList(originList);
+    setAddedList(addedItems);
     setMessage(true);
-    setHideDeleteAllBtn(false);
+    sethideDeleteAllBtn(false);
   }
 
   function increase(id) {
@@ -53,14 +51,13 @@ function App() {
 
   function decrease(id) {
     let index = list.findIndex((item) => item.id === id);
-    if (list[index].amount >= 2) list[index].amount = list[index].amount - 1;
+    if (list[index].amount > 0) list[index].amount = list[index].amount - 1;
     setAddedList(list);
   }
 
   function deleteItem(id) {
     let index = list.findIndex((item) => item.id === id);
     list.splice(index, 1);
-    if (list.length === 0) setHideDeleteAllBtn(true);
     setAddedList(list);
   }
 
@@ -84,10 +81,12 @@ function App() {
           </li>
         </ol>
       </nav>
-      <section className="px-3 py-5 mb-5 p-md-3">
+      <section className="px-3 py-5 mb-5 p-md-5">
         <h2 className="text-center">GIỎ HÀNG</h2>
         <p className="h6 text-center">
-          {message ? `Hiện có ${list.length} sản phẩm trong giỏ hàng` : ""}
+          {message
+            ? `Hiện có ${list.length} sản phẩm trong giỏ hàng`
+            : ""}
         </p>
         <p className="h6 pb-3 text-center">* * *</p>
         <div className="container pt-5">
@@ -97,14 +96,13 @@ function App() {
               {addedList.map(({ id, title, img, price, amount }) => (
                 <MainContent
                   key={id}
-                  id={id}
                   title={title}
                   price={price}
                   img={img}
                   amount={amount}
-                  decrease={decrease}
-                  increase={increase}
-                  deleteItem={deleteItem}
+                  decrease={(e) => decrease(id, e)}
+                  increase={(e) => increase(id, e)}
+                  deleteItem={(e) => deleteItem(id, e)}
                 />
               ))}
               <button
@@ -125,28 +123,29 @@ function App() {
               </button>
             </div>
             <div className="col-12 col-md-4">
-              <div className="p-4 border rounded">
-                <p className="h4 fw-bold text-center pb-3 border-bottom">
-                  Thông tin đơn hàng
+            <div className="p-4 border rounded">
+              <p className="h4 fw-bold text-center pb-3 border-bottom">
+                Thông tin đơn hàng
+              </p>
+              <div className="mt-5 d-flex flex-row flex-wrap justify-content-between align-items-center">
+                <p
+                  className={`${
+                    hideDeleteAllBtn ? "d-none" : "d-block"
+                  }text-start text-secondary`}
+                >
+                  VAT (10%):
                 </p>
-                <div className="mt-5 d-flex flex-row flex-wrap justify-content-between align-items-center">
-                  <p
-                    className={`${
-                      hideDeleteAllBtn ? "d-none" : "d-block"
-                    }text-start text-secondary`}
-                  >
-                    VAT (10%):
-                  </p>
-                  <p className="h5 text-end">
-                    <span className="vat-cost">
-                      {vat.toLocaleString("vi-VN", {
-                        style: "currency",
-                        currency: "VND",
-                      })}
-                    </span>
-                  </p>
-                </div>
-                <div className="d-flex flex-row flex-wrap justify-content-between align-items-center">
+                <p className="h5 text-end">
+                  <span className="vat-cost">
+                    {vat.toLocaleString("vi-VN", {
+                      style: "currency",
+                      currency: "VND",
+                    })}
+                  </span>
+                </p>
+              </div>
+              <div className="d-flex flex-row flex-wrap justify-content-between align-items-center">
+                
                   <p className="text-start text-secondary">Tổng tiền:</p>
                   <p className="h5 text-end text-danger">
                     <span className="h3 total-cost">

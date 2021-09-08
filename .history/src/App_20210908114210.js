@@ -16,7 +16,7 @@ function App() {
     final_price,
     content;
 
-  //const originList = addedList.map((item) => ({...item}));
+  const originList = addedList.map((item) => ({...item}));
 
   if (list.length > 0) {
     let subprice = list.map((item) => item.price * item.amount);
@@ -40,7 +40,7 @@ function App() {
   }
 
   function comeback() {
-    //setAddedList(originList);
+    setAddedList(originList);
     setMessage(true);
     setHideDeleteAllBtn(false);
   }

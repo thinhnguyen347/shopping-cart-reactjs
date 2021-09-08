@@ -40,7 +40,7 @@ function App() {
   }
 
   function comeback() {
-    //setAddedList(originList);
+    setAddedList(originList);
     setMessage(true);
     setHideDeleteAllBtn(false);
   }
