@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MainContent({title, img, price, amount, increase, decrease, deleteItem}) {
+export default function MainContent(title, img, price, amount, increase, decrease, deleteItem) {
   
   return  (
     <div className="container-fluid p-0 mb-3">

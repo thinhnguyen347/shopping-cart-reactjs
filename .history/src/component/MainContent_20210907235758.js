@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MainContent({title, img, price, amount, increase, decrease, deleteItem}) {
+export default function MainContent({title, img, price, amount}, increase, decrease, deleteItem) {
   
   return  (
     <div className="container-fluid p-0 mb-3">
@@ -51,7 +51,7 @@ export default function MainContent({title, img, price, amount, increase, decrea
               </p>
               <button
                 className="btn-close position-absolute end-0 top-0 p-0 mt-0 me-2 me-md-1 me-lg-3"
-                onClick={deleteItem}
+                onClick={()=>deleteItem}
               ></button>
             </div>
           </div>

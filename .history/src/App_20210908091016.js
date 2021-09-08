@@ -10,10 +10,7 @@ function App() {
   const [addedList, setAddedList] = useState(addedItems);
   const [message, setMessage] = useState(true);
   const [hideDeleteAllBtn, sethideDeleteAllBtn] = useState(false);
-  let list = [...addedList],
-    vat,
-    final_price,
-    content;
+  let list = [...addedList], vat, final_price, content;
 
   if (list.length > 0) {
     let subprice = list.map((item) => item.price * item.amount);

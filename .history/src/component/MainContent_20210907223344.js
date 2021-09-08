@@ -1,6 +1,5 @@
-import React from "react";
 
-export default function MainContent({title, img, price, amount, increase, decrease, deleteItem}) {
+export default function MainContent({id, title, img, price, amount}, increase, decrease, deleteItem) {
   
   return  (
     <div className="container-fluid p-0 mb-3">
@@ -14,15 +13,15 @@ export default function MainContent({title, img, price, amount, increase, decrea
               <p className="h5 item-name text-center text-lg-start">{title}</p>
               <div className="spinbox d-flex mx-auto ms-lg-0">
                 <div className="border flex-fill text-center border-end-0 border-secondary rounded-start">
-                  <p className="fs-5 mb-0" onClick={decrease}>
+                  <p className="fs-5 mb-0" onClick={()=> {decrease}>
                     -
                   </p>
                 </div>
                 <div className="border flex-fill text-center border-secondary">
-                  <p className="fs-6 mb-0 py-1 fw-bolder">{amount}</p>
+                  <p className="fs-6 mb-0 py-1">{amount}</p>
                 </div>
                 <div className="border flex-fill text-center border-start-0  border-secondary rounded-end">
-                  <p className="fs-5 mb-0" onClick={increase}>
+                  <p className="fs-5 mb-0" onClick={()=>increase}>
                     +
                   </p>
                 </div>
@@ -40,7 +39,7 @@ export default function MainContent({title, img, price, amount, increase, decrea
               </p>
             </div>
             <div className="col-6 col-md-6 col-lg-4 position-relative">
-              <p className="m-0 text-center">Thành tiền</p>
+              <p className="m-0 text-center">Tổng tiền/món</p>
               <p className="h5 py-1 py-lg-2 text-center fw-bold">
                 <span className="price">
                   {(price * amount).toLocaleString("vi-VN", {
@@ -50,8 +49,8 @@ export default function MainContent({title, img, price, amount, increase, decrea
                 </span>
               </p>
               <button
-                className="btn-close position-absolute end-0 top-0 p-0 mt-0 me-2 me-md-1 me-lg-3"
-                onClick={deleteItem}
+                className="btn-close position-absolute end-0 top-0 p-0 mt-0 me-2 me-lg-4"
+                onClick={()=>deleteItem}
               ></button>
             </div>
           </div>

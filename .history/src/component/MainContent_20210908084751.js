@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MainContent({title, img, price, amount, increase, decrease, deleteItem}) {
+export default function MainContent(title, img, price, amount, increase, decrease, deleteItem) {
   
   return  (
     <div className="container-fluid p-0 mb-3">
@@ -32,7 +32,7 @@ export default function MainContent({title, img, price, amount, increase, decrea
               <p className="m-0 text-center">Đơn giá</p>
               <p className=" py-1 py-lg-2 text-center">
                 <span className="price">
-                  {price.toLocaleString("vi-VN", {
+                  {${price.toLocaleString("vi-VN", {
                     style: "currency",
                     currency: "VND"
                   })}

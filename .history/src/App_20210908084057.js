@@ -10,10 +10,8 @@ function App() {
   const [addedList, setAddedList] = useState(addedItems);
   const [message, setMessage] = useState(true);
   const [hideDeleteAllBtn, sethideDeleteAllBtn] = useState(false);
-  let list = [...addedList],
-    vat,
-    final_price,
-    content;
+  let list = [...addedList];
+  let vat, final_price, content;
 
   if (list.length > 0) {
     let subprice = list.map((item) => item.price * item.amount);
@@ -21,8 +19,10 @@ function App() {
       (accumulator, currentValue) => accumulator + currentValue,
       0
     );
+
     vat = subprice1 * 0.1;
     final_price = subprice1 + vat;
+
     content = "";
   } else {
     vat = 0;
@@ -59,6 +59,9 @@ function App() {
     list.splice(index, 1);
     setAddedList(list);
   }
+
+  let mapList = Ơ...addedList];
+  let 
 
   return (
     <>
@@ -99,9 +102,9 @@ function App() {
                   price={price}
                   img={img}
                   amount={amount}
-                  decrease={(e) => decrease(id, e)}
-                  increase={(e) => increase(id, e)}
-                  deleteItem={(e) => deleteItem(id, e)}
+                  decrease={decrease}
+                  increase={increase}
+                  deleteItem={deleteItem}
                 />
               ))}
               <button

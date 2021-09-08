@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MainContent({title, img, price, amount, increase, decrease, deleteItem}) {
+export default function MainContent({id, title, img, price, amount, increase, decrease, deleteItem}) {
   
   return  (
     <div className="container-fluid p-0 mb-3">
@@ -14,7 +14,7 @@ export default function MainContent({title, img, price, amount, increase, decrea
               <p className="h5 item-name text-center text-lg-start">{title}</p>
               <div className="spinbox d-flex mx-auto ms-lg-0">
                 <div className="border flex-fill text-center border-end-0 border-secondary rounded-start">
-                  <p className="fs-5 mb-0" onClick={decrease}>
+                  <p className="fs-5 mb-0" onClick={(e)=>decrease(id,e)}>
                     -
                   </p>
                 </div>

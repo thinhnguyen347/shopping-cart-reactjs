@@ -10,10 +10,8 @@ function App() {
   const [addedList, setAddedList] = useState(addedItems);
   const [message, setMessage] = useState(true);
   const [hideDeleteAllBtn, sethideDeleteAllBtn] = useState(false);
-  let list = [...addedList],
-    vat,
-    final_price,
-    content;
+  let list = [...addedList];
+  let vat, final_price, content;
 
   if (list.length > 0) {
     let subprice = list.map((item) => item.price * item.amount);
@@ -21,8 +19,10 @@ function App() {
       (accumulator, currentValue) => accumulator + currentValue,
       0
     );
+
     vat = subprice1 * 0.1;
     final_price = subprice1 + vat;
+
     content = "";
   } else {
     vat = 0;
@@ -60,6 +60,9 @@ function App() {
     setAddedList(list);
   }
 
+  let mapList = {...addedList, increase, decrease, deleteItem};
+  
+
   return (
     <>
       <Navbar />
@@ -92,16 +95,16 @@ function App() {
           <div className="row g-4">
             <div className="col-12 col-md-8 py-0 ps-md-0">
               {content}
-              {addedList.map(({ id, title, img, price, amount }) => (
+              {mapList.map(({ id, title, img, price, amount }, decrease,increase, deleteItem) => (
                 <MainContent
                   key={id}
                   title={title}
                   price={price}
                   img={img}
                   amount={amount}
-                  decrease={(e) => decrease(id, e)}
-                  increase={(e) => increase(id, e)}
-                  deleteItem={(e) => deleteItem(id, e)}
+                  decrease={decrease}
+                  increase={increase}
+                  deleteItem={deleteItem}
                 />
               ))}
               <button

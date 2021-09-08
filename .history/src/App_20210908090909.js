@@ -10,19 +10,19 @@ function App() {
   const [addedList, setAddedList] = useState(addedItems);
   const [message, setMessage] = useState(true);
   const [hideDeleteAllBtn, sethideDeleteAllBtn] = useState(false);
-  let list = [...addedList],
-    vat,
-    final_price,
-    content;
+  let list = [...addedList];
+  let vat, final_price, content;
+  let subprice = list.map((item) => item.price * item.amount);
 
-  if (list.length > 0) {
-    let subprice = list.map((item) => item.price * item.amount);
+  if (list.length > 0 && ) {
     let subprice1 = subprice.reduce(
       (accumulator, currentValue) => accumulator + currentValue,
       0
     );
+
     vat = subprice1 * 0.1;
     final_price = subprice1 + vat;
+
     content = "";
   } else {
     vat = 0;

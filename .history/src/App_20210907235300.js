@@ -10,10 +10,8 @@ function App() {
   const [addedList, setAddedList] = useState(addedItems);
   const [message, setMessage] = useState(true);
   const [hideDeleteAllBtn, sethideDeleteAllBtn] = useState(false);
-  let list = [...addedList],
-    vat,
-    final_price,
-    content;
+  let list = [...addedList];
+  let vat, final_price, content;
 
   if (list.length > 0) {
     let subprice = list.map((item) => item.price * item.amount);
@@ -21,8 +19,10 @@ function App() {
       (accumulator, currentValue) => accumulator + currentValue,
       0
     );
+
     vat = subprice1 * 0.1;
     final_price = subprice1 + vat;
+
     content = "";
   } else {
     vat = 0;
@@ -43,15 +43,16 @@ function App() {
   }
 
   function increase(id) {
-    let index = list.findIndex((item) => item.id === id);
-    list[index].amount = list[index].amount + 1;
-    setAddedList(list);
+    //let index = list.findIndex((item) => item.id === id);
+    //list[index].amount = list[index].amount + 1;
+    //setAddedList(list);
   }
 
   function decrease(id) {
-    let index = list.findIndex((item) => item.id === id);
-    if (list[index].amount > 0) list[index].amount = list[index].amount - 1;
-    setAddedList(list);
+    //let index = list.findIndex((item) => item.id === id);
+    //if (list[index].amount > 0) list[index].amount = list[index].amount - 1;
+    console.log("list");
+    //setAddedList(list);
   }
 
   function deleteItem(id) {
@@ -99,11 +100,12 @@ function App() {
                   price={price}
                   img={img}
                   amount={amount}
-                  decrease={(e) => decrease(id, e)}
-                  increase={(e) => increase(id, e)}
-                  deleteItem={(e) => deleteItem(id, e)}
+                  decrease={decrease}
+                  increase={increase}
+                  deleteItem={deleteItem}
                 />
               ))}
+
               <button
                 className={`btn btn-light text-decoration-underline mt-3 text-end ${
                   hideDeleteAllBtn ? "d-none" : ""
@@ -112,6 +114,7 @@ function App() {
               >
                 Xoá hết
               </button>
+
               <button
                 className={`d-block mx-auto btn btn-primary mt-3 text-end ${
                   hideDeleteAllBtn ? "" : "d-none"
@@ -125,6 +128,7 @@ function App() {
               <p className="h4 fw-bold text-center pb-3 border-bottom">
                 Thông tin đơn hàng
               </p>
+
               <div className="mt-5 d-flex flex-row flex-wrap justify-content-between align-items-center">
                 <p
                   className={`${
@@ -142,6 +146,7 @@ function App() {
                   </span>
                 </p>
               </div>
+
               <div className="mt-5 mb-3 d-flex flex-row flex-wrap justify-content-between align-items-center">
                 <p className="text-start text-secondary">Tổng tiền:</p>
                 <p className="h5 text-end text-danger">

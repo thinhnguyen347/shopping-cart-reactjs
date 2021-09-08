@@ -10,10 +10,8 @@ function App() {
   const [addedList, setAddedList] = useState(addedItems);
   const [message, setMessage] = useState(true);
   const [hideDeleteAllBtn, sethideDeleteAllBtn] = useState(false);
-  let list = [...addedList],
-    vat,
-    final_price,
-    content;
+  let list = [...addedList];
+  let vat, final_price, content;
 
   if (list.length > 0) {
     let subprice = list.map((item) => item.price * item.amount);
@@ -21,8 +19,10 @@ function App() {
       (accumulator, currentValue) => accumulator + currentValue,
       0
     );
+
     vat = subprice1 * 0.1;
     final_price = subprice1 + vat;
+
     content = "";
   } else {
     vat = 0;
@@ -43,9 +43,10 @@ function App() {
   }
 
   function increase(id) {
-    let index = list.findIndex((item) => item.id === id);
-    list[index].amount = list[index].amount + 1;
-    setAddedList(list);
+    //let index = list.findIndex((item) => item.id === id);
+    //list[index].amount = list[index].amount + 1;
+    //setAddedList(list);
+    console.log(id)
   }
 
   function decrease(id) {
@@ -60,6 +61,7 @@ function App() {
     setAddedList(list);
   }
 
+  
   return (
     <>
       <Navbar />
@@ -95,13 +97,14 @@ function App() {
               {addedList.map(({ id, title, img, price, amount }) => (
                 <MainContent
                   key={id}
+                  id={i}
                   title={title}
                   price={price}
                   img={img}
                   amount={amount}
-                  decrease={(e) => decrease(id, e)}
-                  increase={(e) => increase(id, e)}
-                  deleteItem={(e) => deleteItem(id, e)}
+                  decrease={decrease}
+                  increase={increase}
+                  deleteItem={deleteItem}
                 />
               ))}
               <button
